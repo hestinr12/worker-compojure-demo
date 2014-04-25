@@ -12,7 +12,7 @@
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
                         [ring-mock "0.1.5"]]}}
   :aws {:access-key ~(System/getenv "AWS_ACCESS_KEY")
-  			:secret-key ~(System/getenv "AWS_SECRET_KEY")
-  			:beanstalk {:stack-name "64bit Amazon Linux running Tomcat 7"}
-     	 	:app-tier {:name "Worker" :type "SQS/HTTP" :version "1.0"}
-    	  :environments [{:name "worker-demo"}]})
+        :secret-key ~(System/getenv "AWS_SECRET_KEY")
+        :beanstalk {:stack-name "64bit Amazon Linux running Tomcat 7"}
+        :app-tier {:name "Worker" :type "SQS/HTTP" :version "1.0"}
+        :environments [{:name "worker-demo"}]})
