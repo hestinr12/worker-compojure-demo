@@ -6,7 +6,7 @@
                  [ring/ring-json "0.3.1"]
                  [com.cemerick/bandalore "0.0.5"]]
   :plugins [[lein-ring "0.8.10"]
-            [lein-elastic-beanstalk "0.2.8-SNAPSHOT"]]
+            [org.clojars.jhosteny/lein-elastic-beanstalk "0.2.9-SNAPSHOT"]]
   :ring {:handler worker-demo.handler/app}
   :profiles
   {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
@@ -15,4 +15,4 @@
   			:secret-key ~(System/getenv "AWS_SECRET_KEY")
   			:beanstalk {:stack-name "64bit Amazon Linux running Tomcat 7"}
      	 	:app-tier {:name "Worker" :type "SQS/HTTP" :version "1.0"}
-    	  :environments [{:name "worker-demo"}]}
+    	  :environments [{:name "worker-demo"}]})
