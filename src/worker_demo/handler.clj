@@ -7,11 +7,11 @@
 (defn process-message [body]
 
   (def client (sqs/create-client))
-  (sqs/send client "https://queue.amazonaws.com/598573023317/demo_queue_2" (str body " it worked! (sort of)")))
+  (sqs/send client "https://queue.amazonaws.com/598573023317/demo_queue_2" (str body " it worked!")))
 
 (defroutes app-routes
   (GET "/" [] "Waiiiiiit a minute...what are you doing here? Scram!")
-  (POST "/" {body :body} (process-message body))
+  (POST "/" {body :body} (process-message (slurp body)))
   (route/resources "/")
   (route/not-found "Not Found"))
 
