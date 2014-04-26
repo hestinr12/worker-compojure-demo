@@ -6,8 +6,7 @@
 
 (defn process-message [body]
 
-	(require '[cemerick.bandalore :as sqs])
-	(def client (sqs/create-client ~(System/getenv "AWS_ACCESS_KEY_ID") ~(System/getenv "AWS_SECRET_KEY")))
+	(def client (sqs/create-client))
 	(sqs/send client "https://queue.amazonaws.com/598573023317/demo_queue_2" (str body "***")))
 
 (defroutes app-routes
